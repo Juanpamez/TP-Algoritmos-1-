@@ -1,0 +1,25 @@
+name: Compilar LaTeX
+
+on:
+  push:
+    paths:
+      - 'input/**'
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Compilar LaTeX
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: input/documento.tex
+
+      - name: Guardar PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: documento-pdf
+          path: input/documento.pdf
