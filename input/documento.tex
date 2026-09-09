@@ -37,32 +37,6 @@
 
 \maketitle
 
-\section{Sistema de Fidelización AirMiles}
-\begin{tad}{AirMiles}
-\medskip
-\ES{NombrePromo}{string}
-\medskip
-\\
-\ES{IdUsuario}{\Z} 
-\medskip
-\\
-\ES{InfoPromo}{\struct{Factor:\Z ,TieneTope:\bool,Tope:\Z,MillasAcumuladas:\Z}}
-\medskip
-\\
-\enum{TipoTransaccion}{vuelo,canje,transferenciaRecibida,transferenciaEnviada,Referido}
-\medskip
-\\
-\ES{transaccion}{\struct{tipo:TipoTransaccion,millas:\Z,distancia:\Z,NombrePromo:str,FactorPromo:\Z,Premio:str,UsuarioOrigen:IdUsuario,UsuarioDestino:IdUsuario}}
-\medskip
-\\
-\ES{Historial}{\seq{transaccion}}
-\\
-\obs{Usuario}{\dicc{IdUsuario}{Historial}}
-\\
-\obs{Promo}{\dicc{NombrePromo}{InfoPromo}}
-\medskip
-\medskip
- 
 \begin{proc}{registrarUsuario:}{}{}
 \end{proc}
 
