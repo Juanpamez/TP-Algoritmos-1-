@@ -1,10 +1,115 @@
-\documentclass{article}
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[left=2.5cm,top=3cm,right=2.5cm,bottom=3cm,bindingoffset=0.5cm]{geometry}
+\usepackage{macros/AEDLogica, macros/AEDEspecificacion, macros/AEDTADs}
+\usepackage{caratula}
+
+
+\titulo{Trabajo práctico}
+\subtitulo{Especificación de TAD: Sistema de Fidelización AirMiles}
+
+\fecha{\today}
+
+\materia{Algoritmos y Estructuras de Datos}
+\grupo{Nombre del grupo} 
+
+\integrante{Meza, Juan Pablo}{931/25}{juanpimeza7@gmail.com}
+\integrante{Jerez, Luca}{93/25}{lulojrz18@gmail.com}
+\integrante{Lubatti, Ana}{748/25}{lubattiana@gmail.com}
+\integrante{Perez Sotelo, Martina}{480/25}{martinaperezsotelo@gmail.com}
+
+% \integrante{Apellido, Nombre2}{002/01}{email2@dominio.com} %
+
+
+% Declaramos donde van a estar las figuras
+% No es obligatorio, pero suele ser comodo
+\graphicspath{{../static/}}
+
+% Asi pueden escribir nuevos comandos. 
+% Este por ejemplo asegura q los nombres 
+% que figuren con una tipografia diferenciada  
+\newcommand{\Tipo}[1]{\mathsf{#1}}
+% la sintaxis es \newcommand{\nombreDeLaMacro}[cantidadDeParametros]{Lo que va ser remplazado por el macro} 
+\newcommand{\norm}[1]{\vert #1\vert}
 
 \begin{document}
 
-Hola mundo.
-Chau
-Este es mi primer documento compilado automáticamente
-desde GitHub.
+\maketitle
+
+\section{Sistema de Fidelización AirMiles}
+\begin{tad}{AirMiles}
+\medskip
+\ES{NombrePromo}{string}
+\medskip
+\\
+\ES{IdUsuario}{\Z} 
+\medskip
+\\
+\ES{InfoPromo}{\struct{Factor:\Z ,TieneTope:\bool,Tope:\Z,MillasAcumuladas:\Z}}
+\medskip
+\\
+\enum{TipoTransaccion}{vuelo,canje,transferenciaRecibida,transferenciaEnviada,Referido}
+\medskip
+\\
+\ES{transaccion}{\struct{tipo:TipoTransaccion,millas:\Z,distancia:\Z,NombrePromo:str,FactorPromo:\Z,Premio:str,UsuarioOrigen:IdUsuario,UsuarioDestino:IdUsuario}}
+\medskip
+\\
+\ES{Historial}{\seq{transaccion}}
+\\
+\obs{Usuario}{\dicc{IdUsuario}{Historial}}
+\\
+\obs{Promo}{\dicc{NombrePromo}{InfoPromo}}
+\medskip
+\medskip
+ 
+\begin{proc}{registrarUsuario:}{}{}
+\end{proc}
+
+\begin{proc}{registrarUsuarioConReferidor:}{}{}
+
+\end{proc}  
+
+
+\begin{proc}{acumularMillas}{}{}
+\end{proc}
+
+\begin{proc}{canjearMillas}{}{}
+\end{proc}
+
+\begin{proc}{transferirMillas}{}{}
+\end{proc}
+
+\begin{proc}{consultarSaldo}{}{}
+\end{proc}
+
+\begin{proc}{consultarCategoria}{}{}
+\end{proc}
+
+\begin{proc}{rankingMillas}{}{}
+\end{proc}
+
+\begin{proc}{resumenTransacciones}{}{}
+\end{proc}
+
+\begin{proc}{iniciarPromocion}{}{}
+\end{proc}
+
+\begin{proc}{iniciarPromocionConTope}{}{}
+\end{proc}
+
+\begin{proc}{finalizarPromocion}{}{}
+\end{proc}
+
+\begin{proc}{elMasAcumulador}{}{}
+\end{proc}
+
+\begin{proc}{elMasCanjeador}{}{}
+\end{proc}
+
+\begin{proc}{paresTransferidoresExclusivos}{}{}
+\end{proc}
+
+\end{tad}
 
 \end{document}
